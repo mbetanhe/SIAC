@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30709.132
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIAC.API", "SIAC.API\SIAC.API.csproj", "{F6F903BF-E1C7-49C2-8525-E7F7BF77E353}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIAC.CORE", "SIAC.CORE\SIAC.CORE.csproj", "{6632A129-FC22-4504-AF3D-2F0A49EDEE4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIAC.INFRASTRUCTURE", "SIAC.INFRASTRUCTURE\SIAC.INFRASTRUCTURE.csproj", "{350A6953-784B-427D-8B5A-6E8D6AA91085}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{1369EA66-4AA9-45D5-9867-08C4CB71FFE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIAC.UnitTest", "SIAC.UnitTest\SIAC.UnitTest.csproj", "{8914171B-E7DF-416D-A9F0-D569F63B86C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIAC.IntegrationTest", "SIAC.IntegrationTest\SIAC.IntegrationTest.csproj", "{3459F0C4-30D8-42EA-A92A-D6B47467EBAB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F6F903BF-E1C7-49C2-8525-E7F7BF77E353}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6F903BF-E1C7-49C2-8525-E7F7BF77E353}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6F903BF-E1C7-49C2-8525-E7F7BF77E353}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6F903BF-E1C7-49C2-8525-E7F7BF77E353}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6632A129-FC22-4504-AF3D-2F0A49EDEE4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6632A129-FC22-4504-AF3D-2F0A49EDEE4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6632A129-FC22-4504-AF3D-2F0A49EDEE4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6632A129-FC22-4504-AF3D-2F0A49EDEE4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{350A6953-784B-427D-8B5A-6E8D6AA91085}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{350A6953-784B-427D-8B5A-6E8D6AA91085}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{350A6953-784B-427D-8B5A-6E8D6AA91085}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{350A6953-784B-427D-8B5A-6E8D6AA91085}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8914171B-E7DF-416D-A9F0-D569F63B86C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8914171B-E7DF-416D-A9F0-D569F63B86C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8914171B-E7DF-416D-A9F0-D569F63B86C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8914171B-E7DF-416D-A9F0-D569F63B86C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3459F0C4-30D8-42EA-A92A-D6B47467EBAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3459F0C4-30D8-42EA-A92A-D6B47467EBAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3459F0C4-30D8-42EA-A92A-D6B47467EBAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3459F0C4-30D8-42EA-A92A-D6B47467EBAB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8914171B-E7DF-416D-A9F0-D569F63B86C1} = {1369EA66-4AA9-45D5-9867-08C4CB71FFE0}
+		{3459F0C4-30D8-42EA-A92A-D6B47467EBAB} = {1369EA66-4AA9-45D5-9867-08C4CB71FFE0}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F8312392-AF50-4FAB-897B-33694BE0888F}
+	EndGlobalSection
+EndGlobal
