@@ -18,6 +18,13 @@ namespace SIAC.API
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .ConfigureLogging(logBuilder =>
+                {
+                    logBuilder.ClearProviders(); // removes all providers from LoggerFactory
+                    logBuilder.AddConsole();
+                    logBuilder.AddDebug();
+                    logBuilder.AddTraceSource("Information, ActivityTracing"); // Add Trace listener provider
+                })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
