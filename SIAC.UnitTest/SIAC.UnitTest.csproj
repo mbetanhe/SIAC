@@ -19,4 +19,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SIAC.CORE\SIAC.CORE.csproj" />
+    <ProjectReference Include="..\SIAC.INFRASTRUCTURE\SIAC.INFRASTRUCTURE.csproj" />
+  </ItemGroup>
+
 </Project>

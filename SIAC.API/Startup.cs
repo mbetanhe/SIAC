@@ -1,16 +1,13 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using SIAC.CORE.Interfaces;
+using SIAC.INFRASTRUCTURE.Data;
+using SIAC.INFRASTRUCTURE.Repository;
 
 namespace SIAC.API
 {
@@ -28,6 +25,19 @@ namespace SIAC.API
         {
 
             services.AddControllers();
+
+            //Agregamos el contexto de datos.
+            services.AddDbContext<AuditoriaDeCampoContext>(opt =>
+            {
+                opt.UseSqlServer(Configuration.GetConnectionString("DBCon"));
+            });
+
+            //Agregamos los servicios.
+            services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<IPremisasOfflineRepository, PremisasOfflineRepository>();
+
+            //Agregamos el servicio de documentacion
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SIAC.API", Version = "v1" });

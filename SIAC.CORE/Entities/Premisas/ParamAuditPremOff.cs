@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-
-#nullable disable
+﻿#nullable disable
 
 namespace SIAC.CORE.Entities.Premisas
 {
-    public partial class ParamAuditPremOff
+    public partial class ParamAuditPremOff : BaseEntity
     {
-        public long Id { get; set; }
-        public DateTime? FechaAuditoria { get; set; }
-        public string PedidoId { get; set; }
         public string Hallazgo { get; set; }
         public string IdParametro { get; set; }
         public string IdParametroTipo { get; set; }
@@ -25,9 +19,5 @@ namespace SIAC.CORE.Entities.Premisas
         public bool? CalGeneral { get; set; }
         public string CalDescripcion { get; set; }
         public int? CantError { get; set; }
-        public string Observaciones { get; set; }
-        public DateTime? Fecha { get; set; }
-        public DateTime? FechaCarga { get; set; }
-        public DateTime? FechaVerfMesa { get; set; }
     }
 }

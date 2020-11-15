@@ -1,17 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 
 #nullable disable
 
 namespace SIAC.CORE.Entities.Premisas
 {
-    public partial class FacPremisasOffline
+    public partial class FacPremisasOffline : BaseEntity
     {
-        public long Id { get; set; }
-        public int? NumeroDeAuditoria { get; set; }
+        public int Numero_De_Auditoria  {get; set; }
         public DateTime? FechaCargaXls { get; set; }
         public string NombreEmpresa { get; set; }
-        public string PedidoId { get; set; }
         public string TipoTrabajo { get; set; }
         public string NombreFuncionario { get; set; }
         public string CodFuncionario { get; set; }
@@ -49,7 +46,6 @@ namespace SIAC.CORE.Entities.Premisas
         public string Administrador { get; set; }
         public string Analista { get; set; }
         public string Regional { get; set; }
-        public DateTime? FechaAuditoria { get; set; }
         public double? HoraInicio { get; set; }
         public string LatitudLongitud { get; set; }
         public string A1 { get; set; }
@@ -118,21 +114,17 @@ namespace SIAC.CORE.Entities.Premisas
         public double? TDespla { get; set; }
         public double? TiempoEnMin { get; set; }
         public bool? TiempoVal { get; set; }
-        public DateTime? Fecha { get; set; }
         public int? Mes { get; set; }
         public int? Nombremes { get; set; }
         public int? Año { get; set; }
-        public DateTime? FechaCarga { get; set; }
         public string EstadoGeneral { get; set; }
         public string CalidadData { get; set; }
         public bool? VerfAudit { get; set; }
-        public string ObsVerf { get; set; }
         public string ErrorDescripcion { get; set; }
         public int? CuentaError { get; set; }
         public bool? ImputAuditor { get; set; }
         public bool? ImputMesa { get; set; }
         public bool? HallazgoGeneral { get; set; }
-        public DateTime? FechaVerfMes { get; set; }
         public bool? Conciliacion { get; set; }
         public string ResultadoC { get; set; }
         public string DescC { get; set; }
