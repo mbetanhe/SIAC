@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -6,8 +7,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using SIAC.CORE.Interfaces;
+using SIAC.CORE.Services;
 using SIAC.INFRASTRUCTURE.Data;
 using SIAC.INFRASTRUCTURE.Repository;
+using System;
 
 namespace SIAC.API
 {
@@ -26,6 +29,9 @@ namespace SIAC.API
 
             services.AddControllers();
 
+            //Servicio de automaper.
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
             //Agregamos el contexto de datos.
             services.AddDbContext<AuditoriaDeCampoContext>(opt =>
             {
@@ -34,8 +40,10 @@ namespace SIAC.API
 
             //Agregamos los servicios.
             services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
+            services.AddTransient<IPremOffService, PremOffService>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IPremisasOfflineRepository, PremisasOfflineRepository>();
+            services.AddTransient<IParamPreOffRepository, ParamPreOffRepository>();
 
             //Agregamos el servicio de documentacion
             services.AddSwaggerGen(c =>

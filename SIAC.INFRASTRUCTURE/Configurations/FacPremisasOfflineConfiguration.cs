@@ -14,6 +14,8 @@ namespace SIAC.INFRASTRUCTURE.Configurations
 
             entity.Property(e => e.A1).HasMaxLength(255);
 
+            entity.Ignore(e => e.Parametros);
+
             entity.Property(e => e.A1Foto1)
                 .HasMaxLength(255)
                 .HasColumnName("A1_Foto1");

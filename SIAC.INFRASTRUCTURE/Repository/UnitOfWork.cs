@@ -13,18 +13,18 @@ namespace SIAC.INFRASTRUCTURE.Repository
     public class UnitOfWork : IUnitOfWork
     {
         private readonly AuditoriaDeCampoContext _context;
-        private readonly IRepository<ParamAuditPremOff> _paramRepository;
+        private readonly IParamPreOffRepository _paramRepository;
         private readonly IPremisasOfflineRepository _premOffRepository;
 
-        public UnitOfWork(AuditoriaDeCampoContext context, IRepository<ParamAuditPremOff> paramRepository, IPremisasOfflineRepository premOffRepository)
+        public UnitOfWork(AuditoriaDeCampoContext context, IParamPreOffRepository paramRepository, IPremisasOfflineRepository premOffRepository)
         {
             this._context = context;
             this._paramRepository = paramRepository;
             this._premOffRepository = premOffRepository;
         }
-
-        public IRepository<ParamAuditPremOff> ParamRepository => _paramRepository ?? new BaseRepository<ParamAuditPremOff>(_context);
         public IPremisasOfflineRepository PremOffRepository => _premOffRepository ?? new PremisasOfflineRepository(_context);
+
+        public IParamPreOffRepository ParamRepository => _paramRepository ?? new ParamPreOffRepository(_context);
 
 
         public void Dispose()

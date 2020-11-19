@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 #nullable disable
 
@@ -129,5 +130,7 @@ namespace SIAC.CORE.Entities.Premisas
         public string ResultadoC { get; set; }
         public string DescC { get; set; }
         public string ImputC { get; set; }
+
+        public virtual ICollection<ParamAuditPremOff> Parametros { get; set; }
     }
 }

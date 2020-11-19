@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using SIAC.API.Responses;
+using SIAC.CORE.DTOs;
 using SIAC.CORE.Entities.Premisas;
 using SIAC.CORE.Interfaces;
 using System.Collections.Generic;
@@ -13,9 +15,19 @@ namespace SIAC.API.Controllers
     [ApiController]
     public class PremisasOffController : ControllerBase
     {
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IPremOffService _premOffService;
+        private readonly IMapper _mapper;
 
-        public PremisasOffController(IUnitOfWork UnitOfWork) => _unitOfWork = UnitOfWork;
+        //private readonly IUnitOfWork _unitOfWork;
+
+
+        //public PremisasOffController(IUnitOfWork UnitOfWork) => _unitOfWork = UnitOfWork;
+
+        public PremisasOffController(IPremOffService premOffService, IMapper mapper)
+        {
+            _premOffService = premOffService;
+            _mapper = mapper;
+        }
 
 
         /// <summary>
@@ -28,7 +40,7 @@ namespace SIAC.API.Controllers
         {
 
             //Obtenemos la data.
-            var result = await _unitOfWork.PremOffRepository.GetAll();
+            var result = await _premOffService.GetAll();
 
             return Ok(result);
         }
@@ -38,13 +50,13 @@ namespace SIAC.API.Controllers
         /// Retorna todos los registros de las premisas.
         /// </summary>
         /// <returns>Premisas Offilne</returns>
-        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(FacPremisasOffline))]
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(PremisasOffDTO))]
         [HttpGet("{PedidoID}")]
         public async Task<IActionResult> GetByPedido(string PedidoID)
         {
 
             //Obtenemos la data.
-            var result = new ApiResponse<FacPremisasOffline>(await _unitOfWork.PremOffRepository.GetByPedido(PedidoID), 1);
+            var result = new ApiResponse<PremisasOffDTO>( _mapper.Map<PremisasOffDTO>(await _premOffService.GetByPedido(PedidoID)), 1);
 
             return Ok(result);
         }

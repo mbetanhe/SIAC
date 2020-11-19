@@ -6,7 +6,7 @@ namespace SIAC.CORE.Interfaces
 {
     public interface IUnitOfWork
     {
-        IRepository<ParamAuditPremOff> ParamRepository { get; }
+        IParamPreOffRepository ParamRepository { get; }
         IPremisasOfflineRepository PremOffRepository { get; }
 
         void Dispose();

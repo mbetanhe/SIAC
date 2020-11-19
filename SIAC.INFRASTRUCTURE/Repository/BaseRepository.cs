@@ -26,7 +26,7 @@ namespace SIAC.INFRASTRUCTURE.Repository
             //Obtenemos el resultado ejecutando una tarea.
             IEnumerable<T> Resultado = await Task.Run(() =>
             {
-                return _entity.AsEnumerable().Take(10);
+                return _entity.AsEnumerable();
             });
 
             return Resultado;
