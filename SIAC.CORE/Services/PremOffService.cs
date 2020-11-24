@@ -1,8 +1,10 @@
 ﻿using SIAC.CORE.Entities.Premisas;
+using SIAC.CORE.Exceptions;
 using SIAC.CORE.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,6 +28,10 @@ namespace SIAC.CORE.Services
         {
             //Obtenemos la info de la premisa
             FacPremisasOffline currentPremisa = await _unitOfWork.PremOffRepository.GetByPedido(PedidoID);
+
+            //Validamos si viene nula
+            if (currentPremisa == null || currentPremisa.PedidoID == null)
+                throw new GlobalException("Data not found in database", (int)HttpStatusCode.NotFound);
 
             
             //Obtenemos los parametros de la premisa.

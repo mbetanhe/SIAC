@@ -9,6 +9,7 @@ using Microsoft.OpenApi.Models;
 using SIAC.CORE.Interfaces;
 using SIAC.CORE.Services;
 using SIAC.INFRASTRUCTURE.Data;
+using SIAC.INFRASTRUCTURE.Filters;
 using SIAC.INFRASTRUCTURE.Repository;
 using System;
 
@@ -16,6 +17,9 @@ namespace SIAC.API
 {
     public class Startup
     {
+        readonly string CORS_POLICY = "CORS_POLICY";
+
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -26,8 +30,20 @@ namespace SIAC.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: CORS_POLICY,
+                                  builder =>
+                                  {
+                                      builder.AllowAnyOrigin()
+                                      .AllowAnyMethod()
+                                      .AllowAnyHeader();
+                                  });
+            });
 
-            services.AddControllers();
+            services.AddControllers(opt => {
+                opt.Filters.Add<GlobalExceptionFilter>();
+            });
 
             //Servicio de automaper.
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -65,6 +81,8 @@ namespace SIAC.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(CORS_POLICY);
 
             app.UseAuthorization();
 

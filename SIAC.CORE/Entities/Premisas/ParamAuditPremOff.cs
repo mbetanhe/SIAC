@@ -21,6 +21,6 @@ namespace SIAC.CORE.Entities.Premisas
         public bool? CalGeneral { get; set; }
         public string CalDescripcion { get; set; }
         public int? CantError { get; set; }
-        public virtual FacPremisasOffline Premisa { get; set; }
+        //public virtual FacPremisasOffline Premisa { get; set; }
     }
 }

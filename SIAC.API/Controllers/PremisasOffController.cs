@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using SIAC.API.Responses;
 using SIAC.CORE.DTOs;
 using SIAC.CORE.Entities.Premisas;
+using SIAC.CORE.Exceptions;
 using SIAC.CORE.Interfaces;
 using System.Collections.Generic;
 using System.Net;
@@ -56,7 +57,9 @@ namespace SIAC.API.Controllers
         {
 
             //Obtenemos la data.
-            var result = new ApiResponse<PremisasOffDTO>( _mapper.Map<PremisasOffDTO>(await _premOffService.GetByPedido(PedidoID)), 1);
+            //var result = new ApiResponse<PremisasOffDTO>( _mapper.Map<PremisasOffDTO>(await _premOffService.GetByPedido(PedidoID)), 1);
+
+            var result = _mapper.Map<PremisasOffDTO>(await _premOffService.GetByPedido(PedidoID));
 
             return Ok(result);
         }

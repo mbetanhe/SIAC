@@ -21,7 +21,6 @@ namespace SIAC.INFRASTRUCTURE.Configurations
                 .HasMaxLength(255)
                 .HasColumnName("CAL_DESCRIPCION");
 
-            entity.Ignore(e => e.Premisa);
 
             entity.Property(e => e.CalFoto1).HasColumnName("CAL_FOTO1");
 
